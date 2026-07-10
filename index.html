@@ -1,0 +1,348 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Pine Restaurant - Premium Interactive Menu</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0b1814;
+      color: #faf8f5;
+    }
+    .font-luxury {
+      font-family: 'Cinzel', serif;
+    }
+    /* Hide scrollbar for clean horizontal carousel scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #132f25 0%, #0a1b15 100%);
+    }
+    .gold-text-gradient {
+      background: linear-gradient(135deg, #f3e5ab 0%, #d4af37 50%, #aa7c11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .border-gold {
+      border-color: rgba(212, 175, 55, 0.25);
+    }
+    .shadow-luxury {
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+  <!-- NAVIGATION HEADER -->
+  <header class="sticky top-0 z-50 bg-[#0f241d]/95 backdrop-blur-md border-b border-[#d4af37]/20 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      
+      <!-- Logo and Brand -->
+      <div class="flex items-center space-x-3">
+        <!-- Brand Logo Container with Auto-Background Removal -->
+        <div class="w-10 h-10 flex-shrink-0 relative flex items-center justify-center bg-black/40 rounded-full overflow-hidden">
+          <img src="1000329447.png" class="w-full h-full object-cover absolute inset-0 z-10" style="mix-blend-mode: screen;" alt="Golden Pine Logo" onerror="this.style.display='none'">
+          <!-- Back-up minimalist SVG if image fails loading -->
+          <svg viewBox="0 0 100 100" class="w-6 h-6 text-[#d4af37]" fill="currentColor">
+            <path d="M50 5L30 35H45L25 55H42L15 80H45V92H55V80H85L58 55H75L55 35H70L50 5Z"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="font-luxury text-sm md:text-lg font-bold tracking-widest gold-text-gradient leading-none">GOLDEN PINE</h1>
+          <span class="text-[9px] uppercase tracking-[0.25em] text-gray-400 block mt-0.5">R e s t a u r a n t</span>
+        </div>
+      </div>
+
+      <!-- Action Utilities -->
+      <div class="flex items-center space-x-2 md:space-x-3">
+        <div class="relative hidden sm:block">
+          <input id="searchInput" type="text" placeholder="Search dish..." class="bg-[#143228] text-xs text-white pl-8 pr-3 py-1.5 rounded-full border border-[#d4af37]/30 focus:outline-none focus:border-[#d4af37] w-32 md:w-48 transition-all">
+          <i class="fa fa-search absolute left-3 top-2.5 text-[#d4af37]/60 text-[10px]"></i>
+        </div>
+        
+        <!-- Feedback Trigger Button -->
+        <button id="openFeedbackHeaderBtn" class="border border-[#d4af37]/40 text-[#d4af37] px-3 py-1.5 rounded-full text-xs font-semibold hover:bg-[#d4af37]/10 transition-all flex items-center space-x-1.5 shadow-md">
+          <i class="fa-regular fa-comment-dots"></i>
+          <span>Feedback</span>
+        </button>
+
+        <button id="viewCartBtn" class="bg-[#d4af37] text-[#0f241d] px-3.5 py-1.5 rounded-full text-xs font-bold hover:bg-[#ebd077] transition-all flex items-center space-x-1 shadow-md">
+          <i class="fa-solid fa-leaf"></i>
+          <span class="hidden md:inline">Order Basket</span>
+          <span id="cartCount" class="bg-[#0f241d] text-white text-[10px] rounded-full w-5 h-5 flex items-center justify-center ml-1">0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO BRAND SECTION -->
+  <section class="relative bg-cover bg-center py-12 md:py-20 text-center border-b border-[#d4af37]/20" style="background-image: linear-gradient(rgba(15, 36, 29, 0.88), rgba(11, 24, 20, 0.96)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1200');">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="inline-block mb-4">
+        <!-- Main Logo Mark with Auto-Background Removal -->
+        <div class="w-28 h-28 mx-auto relative flex items-center justify-center bg-black/40 rounded-full overflow-hidden p-2 shadow-inner border border-[#d4af37]/10">
+          <img src="1000329447.png" class="w-full h-full object-cover absolute inset-0 z-10" style="mix-blend-mode: screen;" alt="Golden Pine Logo" onerror="this.style.display='none'">
+          <svg viewBox="0 0 100 100" class="w-16 h-16 text-[#d4af37]" fill="currentColor">
+            <path d="M50 5L30 35H45L25 55H42L15 80H45V92H55V80H85L58 55H75L55 35H70L50 5Z"/>
+          </svg>
+        </div>
+      </div>
+      <h2 class="font-luxury text-4xl md:text-6xl font-extrabold gold-text-gradient tracking-widest">GOLDEN PINE</h2>
+      <p class="text-[#d4af37] uppercase tracking-[0.4em] text-xs md:text-sm mt-3 font-light">Fine Dining & Authentic Cuisines</p>
+      
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-6 text-xs text-gray-300">
+        <span class="flex items-center"><i class="fa fa-clock text-[#d4af37] mr-1.5"></i> 08:00 AM - 10:30 PM</span>
+        <span class="text-[#d4af37] hidden sm:inline">|</span>
+        <span class="flex items-center"><i class="fa fa-utensils text-[#d4af37] mr-1.5"></i> Multi-Cuisine</span>
+        <span class="text-[#d4af37] hidden sm:inline">|</span>
+        <span class="flex items-center"><i class="fa fa-shield-halved text-[#d4af37] mr-1.5"></i> Hygiene First</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY CAROUSEL TABS -->
+  <nav class="sticky top-[61px] z-40 bg-[#0b1814] border-b border-[#d4af37]/15 py-3 shadow-md">
+    <div id="categoryTabs" class="max-w-7xl mx-auto px-4 flex space-x-2.5 overflow-x-auto no-scrollbar scroll-smooth">
+      <!-- Injected Category Buttons -->
+    </div>
+  </nav>
+
+  <!-- MAIN APP GRID -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full grid grid-cols-1 lg:grid-cols-4 gap-8">
+    
+    <!-- LEFT SIDEBAR: Thali Deals & Packaging Info -->
+    <aside class="space-y-6 lg:col-span-1">
+      
+      <!-- Special Showcase (Thalis) -->
+      <div class="gold-gradient-bg p-5 rounded-2xl border border-[#d4af37]/40 shadow-luxury relative overflow-hidden group">
+        <div class="absolute -top-12 -right-12 w-24 h-24 bg-[#d4af37]/10 rounded-full blur-xl group-hover:bg-[#d4af37]/20 transition-all"></div>
+        <div class="flex items-center space-x-2 mb-3">
+          <i class="fa fa-crown text-[#d4af37] text-lg"></i>
+          <span class="text-[10px] uppercase tracking-widest text-[#d4af37] font-semibold">Chef's Signature Platters</span>
+        </div>
+        <h3 class="font-luxury text-xl font-bold text-white mb-2">Traditional Thalis</h3>
+        <p class="text-xs text-gray-400 mb-4 leading-relaxed">The ultimate Indian platter experience. Complete traditional meals featuring premium dishes. Rice & Dal are unlimited within thali package!</p>
+        
+        <!-- Thali Options -->
+        <div class="space-y-3">
+          <div class="flex justify-between items-center bg-[#0d211a] p-3 rounded-lg border border-[#d4af37]/15">
+            <div>
+              <h4 class="text-xs font-bold text-white">Veg Thali</h4>
+              <p class="text-[10px] text-gray-400">Assorted vegetarian sides</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[#d4af37] text-xs font-bold block">₹250</span>
+              <button onclick="addItem('Veg thali', 250)" class="text-[9px] bg-[#d4af37]/20 text-[#d4af37] px-2.5 py-1 rounded-full hover:bg-[#d4af37] hover:text-[#0f241d] transition-all font-bold mt-1">+ ADD</button>
+            </div>
+          </div>
+          <div class="flex justify-between items-center bg-[#0d211a] p-3 rounded-lg border border-[#d4af37]/15">
+            <div>
+              <h4 class="text-xs font-bold text-white">Egg Thali</h4>
+              <p class="text-[10px] text-gray-400">Egg specialties & starters</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[#d4af37] text-xs font-bold block">₹270</span>
+              <button onclick="addItem('Egg thali', 270)" class="text-[9px] bg-[#d4af37]/20 text-[#d4af37] px-2.5 py-1 rounded-full hover:bg-[#d4af37] hover:text-[#0f241d] transition-all font-bold mt-1">+ ADD</button>
+            </div>
+          </div>
+          <div class="flex justify-between items-center bg-[#0d211a] p-3 rounded-lg border border-[#d4af37]/15">
+            <div>
+              <h4 class="text-xs font-bold text-white">Fish Thali</h4>
+              <p class="text-[10px] text-gray-400">Traditional Fish Curry (2pc)</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[#d4af37] text-xs font-bold block">₹300</span>
+              <button onclick="addItem('Fish thali', 300)" class="text-[9px] bg-[#d4af37]/20 text-[#d4af37] px-2.5 py-1 rounded-full hover:bg-[#d4af37] hover:text-[#0f241d] transition-all font-bold mt-1">+ ADD</button>
+            </div>
+          </div>
+          <div class="flex justify-between items-center bg-[#0d211a] p-3 rounded-lg border border-[#d4af37]/15">
+            <div>
+              <h4 class="text-xs font-bold text-white">Chicken Thali</h4>
+              <p class="text-[10px] text-gray-400">Rich Chicken Curry (4pc)</p>
+            </div>
+            <div class="text-right">
+              <span class="text-[#d4af37] text-xs font-bold block">₹320</span>
+              <button onclick="addItem('Chicken thali', 320)" class="text-[9px] bg-[#d4af37]/20 text-[#d4af37] px-2.5 py-1 rounded-full hover:bg-[#d4af37] hover:text-[#0f241d] transition-all font-bold mt-1">+ ADD</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-4 pt-3 border-t border-[#d4af37]/20 text-center">
+          <span class="text-[9px] text-[#dfba6b] uppercase tracking-widest"><i class="fa fa-info-circle mr-1"></i> Rice & Dal are unlimited</span>
+        </div>
+      </div>
+
+      <!-- Quick Info Block -->
+      <div class="bg-[#10221c] p-4 rounded-xl border border-[#d4af37]/10 text-xs text-gray-300">
+        <h4 class="font-bold text-[#d4af37] mb-2 uppercase tracking-wider"><i class="fa fa-box mr-1.5"></i> Packaging</h4>
+        <p class="leading-relaxed">Eco-Safe Spill-Proof Thermal Packaging: <strong class="text-white">₹20 per container</strong> to ensure kitchen-to-table heat and freshness.</p>
+      </div>
+
+    </aside>
+
+    <!-- RIGHT GRID: Category Content Displays -->
+    <section class="lg:col-span-3 space-y-6">
+      
+      <!-- List Configuration Tools -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#d4af37]/30 pb-4">
+        <div>
+          <h2 id="currentCategoryTitle" class="font-luxury text-2xl md:text-3xl font-bold tracking-wider gold-text-gradient uppercase">Breakfast</h2>
+          <p id="currentCategoryDesc" class="text-xs text-gray-400 mt-1">Savor our wide selection of freshly made dishes.</p>
+        </div>
+        
+        <!-- Grid vs List Layout Switches -->
+        <div class="flex items-center space-x-2 self-start sm:self-auto">
+          <button id="layoutGridBtn" class="p-2 bg-[#132f25] text-[#d4af37] rounded-lg text-sm border border-[#d4af37]/25 focus:outline-none" title="Grid Layout">
+            <i class="fa fa-th-large"></i>
+          </button>
+          <button id="layoutListBtn" class="p-2 bg-[#0d211a] text-gray-400 rounded-lg text-sm border border-[#d4af37]/10 focus:outline-none" title="Line Menu Layout">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="noResults" class="hidden text-center py-16 bg-[#0f241d]/50 rounded-2xl border border-[#d4af37]/10">
+        <i class="fa fa-magnifying-glass text-4xl text-[#d4af37]/40 mb-3"></i>
+        <h3 class="text-lg font-semibold text-white">No matches found</h3>
+        <p class="text-xs text-gray-400 mt-1">Please check your spelling or select another category above.</p>
+      </div>
+
+      <!-- DYNAMIC CARD GRID CONTAINER -->
+      <div id="menuItemsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-300">
+        <!-- Injected via Script -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- DRAWER MODAL SIDEBAR (CART) -->
+  <div id="cartModal" class="fixed inset-0 bg-black/75 backdrop-blur-xs z-50 flex justify-end transform translate-x-full transition-transform duration-300">
+    <div class="w-full max-w-md bg-[#0f241d] h-full flex flex-col shadow-2xl border-l border-[#d4af37]/30">
+      
+      <div class="p-4 border-b border-[#d4af37]/20 flex items-center justify-between gold-gradient-bg">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-seedling text-[#d4af37] text-lg"></i>
+          <h3 class="font-luxury text-lg font-bold text-white">Review Order</h3>
+        </div>
+        <button id="closeCartBtn" class="text-gray-400 hover:text-white p-1">
+          <i class="fa fa-times text-xl"></i>
+        </button>
+      </div>
+
+      <!-- Items Section -->
+      <div id="cartItemsList" class="flex-grow overflow-y-auto p-4 space-y-4 no-scrollbar">
+        <!-- Injected List -->
+      </div>
+
+      <!-- Total Calculator Summary -->
+      <div class="p-4 bg-[#0a1814] border-t border-[#d4af37]/20 space-y-3">
+        <!-- Table Number Input Field -->
+        <div>
+          <label for="tableNumberInput" class="block text-[11px] uppercase tracking-widest text-[#d4af37] font-bold mb-1"><i class="fa-solid fa-chair mr-1"></i> Table Number</label>
+          <input id="tableNumberInput" type="text" placeholder="e.g. Table 5, Table 12 (or leave empty for Takeaway)" class="w-full bg-[#143228] text-xs text-white px-3 py-2 rounded-lg border border-[#d4af37]/20 focus:outline-none focus:border-[#d4af37] transition-all placeholder-gray-500">
+        </div>
+        
+        <div class="flex justify-between text-xs text-gray-400">
+          <span>Subtotal</span>
+          <span id="subtotalPrice">₹0</span>
+        </div>
+        
+        <!-- Eco-Safe Packaging Info Row -->
+        <div class="space-y-1 text-xs text-gray-400">
+          <div class="flex justify-between">
+            <span class="text-[11px] font-medium">Eco-Safe Spill-Proof Thermal Packaging</span>
+            <span id="packCharge">₹0</span>
+          </div>
+          <p class="text-[10px] text-gray-500 leading-tight">₹20 per container to ensure kitchen-to-table heat and freshness.</p>
+        </div>
+        
+        <div class="flex justify-between text-sm font-bold text-white pt-2.5 border-t border-dashed border-[#d4af37]/20">
+          <span>Total Balance</span>
+          <span class="text-[#d4af37]" id="grandTotalPrice">₹0</span>
+        </div>
+
+        <button id="checkoutBtn" class="w-full bg-[#d4af37] hover:bg-[#ebd077] text-[#0f241d] py-3.5 rounded-lg font-bold mt-4 tracking-widest text-xs uppercase shadow-lg transition-all flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Send Order to WhatsApp</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INTERACTIVE CUSTOMER FEEDBACK MODAL -->
+  <div id="feedbackModal" class="fixed inset-0 bg-black/85 backdrop-blur-xs z-50 flex items-center justify-center hidden p-4">
+    <div class="w-full max-w-md bg-[#0f241d] rounded-2xl border border-[#d4af37]/30 shadow-2xl overflow-hidden flex flex-col">
+      <div class="p-4 border-b border-[#d4af37]/20 flex items-center justify-between gold-gradient-bg">
+        <div class="flex items-center space-x-2">
+          <i class="fa-solid fa-star text-[#d4af37]"></i>
+          <h3 class="font-luxury text-base font-bold text-white">Share Your Experience</h3>
+        </div>
+        <button id="closeFeedbackBtn" class="text-gray-400 hover:text-white p-1">
+          <i class="fa fa-times text-lg"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-4">
+        <div class="text-center">
+          <p class="text-xs text-gray-300 mb-2">How was your dining experience with us?</p>
+          <div class="flex justify-center space-x-2.5 text-2xl" id="starRatingContainer">
+            <button class="star-btn text-gray-600 hover:text-[#d4af37] transition-all" data-rating="1"><i class="fa-solid fa-star"></i></button>
+            <button class="star-btn text-gray-600 hover:text-[#d4af37] transition-all" data-rating="2"><i class="fa-solid fa-star"></i></button>
+            <button class="star-btn text-gray-600 hover:text-[#d4af37] transition-all" data-rating="3"><i class="fa-solid fa-star"></i></button>
+            <button class="star-btn text-gray-600 hover:text-[#d4af37] transition-all" data-rating="4"><i class="fa-solid fa-star"></i></button>
+            <button class="star-btn text-gray-600 hover:text-[#d4af37] transition-all" data-rating="5"><i class="fa-solid fa-star"></i></button>
+          </div>
+        </div>
+        <div>
+          <label for="feedbackName" class="block text-[11px] uppercase tracking-widest text-[#d4af37] font-bold mb-1">Your Name</label>
+          <input id="feedbackName" type="text" placeholder="Enter your name" class="w-full bg-[#143228] text-xs text-white px-3 py-2 rounded-lg border border-[#d4af37]/20 focus:outline-none focus:border-[#d4af37] transition-all placeholder-gray-500">
+        </div>
+        <div>
+          <label for="feedbackComment" class="block text-[11px] uppercase tracking-widest text-[#d4af37] font-bold mb-1">Your Comments</label>
+          <textarea id="feedbackComment" rows="3" placeholder="Tell us what you loved, or how we can improve..." class="w-full bg-[#143228] text-xs text-white px-3 py-2 rounded-lg border border-[#d4af37]/20 focus:outline-none focus:border-[#d4af37] transition-all placeholder-gray-500 resize-none"></textarea>
+        </div>
+        <button id="submitFeedbackBtn" class="w-full bg-[#d4af37] hover:bg-[#ebd077] text-[#0f241d] py-3 rounded-lg font-bold tracking-widest text-xs uppercase shadow-lg transition-all flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Submit Feedback</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING QUICK VIEW CART BUTTON (MOBILE ONLY) -->
+  <div class="fixed bottom-6 right-6 lg:hidden z-30">
+    <button id="floatingCartBtn" class="bg-[#d4af37] text-[#0f241d] p-4 rounded-full shadow-2xl hover:scale-105 transform active:scale-95 transition-all flex items-center justify-center relative">
+      <i class="fa-solid fa-utensils text-xl"></i>
+      <span id="floatingCartCount" class="absolute -top-1 -right-1 bg-red-600 text-white text-[9px] font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-[#0b1814]">0</span>
+    </button>
+  </div>
+
+  <!-- MAIN FOOTER -->
+  <footer class="bg-[#0a1814] border-t border-[#d4af37]/20 py-8 text-center text-xs text-gray-400 mt-12">
+    <div class="max-w-7xl mx-auto px-4 space-y-4">
+      <div class="inline-block">
+        <!-- Footer Logo Mark with Auto-Background Removal -->
+        <div class="w-16 h-16 mx-auto relative flex items-center justify-center bg-black/40 rounded-full overflow-hidden p-1 shadow-inner border border-[#d4af37]/10 filter brightness-90">
+          <img src="1000329447.png" class="w-full h-full object-cover absolute inset-0 
